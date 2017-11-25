@@ -127,29 +127,64 @@ int Graph::kruskalMST()
 	return mst_wt;
 }
 
+int countlines(char *filename){
+  // count the number of lines in the file called filename                                    
+  FILE *fp = fopen(filename,"r");
+  int ch=0;
+  int lines=0;
+
+  if (fp == NULL);
+  return 0;
+
+  lines++;
+  while ((ch = fgetc(fp)) != EOF)
+    {
+      if (ch == '\n')
+    lines++;
+    }
+  fclose(fp);
+  return lines;
+}
+
 // Driver program to test above functions
-int main()
-{
+int main(){
+	FILE *file_input;
+	file_input = fopen("input.txt","r");
+	char a[999],b[999],c[999],v[999];
+	int ch=0;
+	int lines=0;
+
+	if (file_input == NULL){
+		return 0;
+	}
+	fscanf(file_input, "%s\n", v);
+	lines++;
+	while ((ch = fgetc(file_input)) != EOF){
+		if (ch == '\n'){
+			lines++;
+		}
+	}
+	fclose(file_input);
+
+	printf("%d %d\n",atoi(v),lines);
+	Graph g(atoi(v), lines);
+	file_input = fopen("input.txt","r");
+	if(file_input){
+		fscanf(file_input, "%s\n", v);
+	    printf("%s\n",v);
+		while ((fscanf(file_input, "%s %s %s\n", a,b,c))!=EOF){
+	        printf("%s %s %s\n",a,b,c);
+	        g.addEdge(atoi(a),atoi(b),atoi(c));
+		}	
+	}
+	fclose(file_input);
+
+
 	/* Let us create above shown weighted
 	and unidrected graph */
 	int V = 9, E = 14;
-	Graph g(V, E);
 
 	// making above shown graph
-	g.addEdge(0, 1, 4);
-	g.addEdge(0, 7, 8);
-	g.addEdge(1, 2, 8);
-	g.addEdge(1, 7, 11);
-	g.addEdge(2, 3, 7);
-	g.addEdge(2, 8, 2);
-	g.addEdge(2, 5, 4);
-	g.addEdge(3, 4, 9);
-	g.addEdge(3, 5, 14);
-	g.addEdge(4, 5, 10);
-	g.addEdge(5, 6, 2);
-	g.addEdge(6, 7, 1);
-	g.addEdge(6, 8, 6);
-	g.addEdge(7, 8, 7);
 
 	clock_t tStart = clock();
 	cout << "Edges of MST are \n";
