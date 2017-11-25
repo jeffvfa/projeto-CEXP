@@ -1,7 +1,8 @@
 // C++ program for Kruskal's algorithm to find Minimum
 // Spanning Tree of a given connected, undirected and
 // weighted graph
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
+#include <time.h>
 using namespace std;
 
 // Creating shortcut for an integer pair
@@ -150,10 +151,10 @@ int main()
 	g.addEdge(6, 8, 6);
 	g.addEdge(7, 8, 7);
 
+	clock_t tStart = clock();
 	cout << "Edges of MST are \n";
 	int mst_wt = g.kruskalMST();
-
 	cout << "\nWeight of MST is " << mst_wt << "\n";
-
+	printf("Time taken: %fs\n", (double)(clock() - tStart)/CLOCKS_PER_SEC);
 	return 0;
 }
