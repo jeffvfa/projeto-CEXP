@@ -2,3 +2,4 @@
 cmake-build-debug/
 CMakeLists.txt
 algoritmos/a.out
+dataset/grafo-completo-10000.txt
