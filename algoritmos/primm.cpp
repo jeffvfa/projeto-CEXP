@@ -302,7 +302,8 @@ int main()
 	addEdge(graph, 6, 7, 1);
 	addEdge(graph, 6, 8, 6);
 	addEdge(graph, 7, 8, 7);
-
+	
+	
 	PrimMST(graph);
 
 	return 0;
