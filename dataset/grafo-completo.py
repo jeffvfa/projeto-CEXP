@@ -15,9 +15,10 @@ f.write("%d\n" % quantity_node)
 
 # gerando um grafo completo
 for x in range(0, quantity_node):
+	print("Nó: %d\n" % (x))
 	for y in range((x+1), quantity_node):
 		range_weight = randint(min_range_weight, max_range_weight)
 		f.write("%d %d %d\n" % (x,y,range_weight))
-		print ("Vertice: (%d,%d,%d) " % (x,y,range_weight))
+		# print ("Vertice: (%d,%d,%d) " % (x,y,range_weight))
 
 f.close() 
