@@ -288,9 +288,7 @@ int main(){
 	FILE *file_input;
 	file_input = fopen("input.txt","r");
 	struct Graph* graph;
-	char* str;
 	char a[2],b[2],c[2],v[2];
-	printf("abri\n");
 	if(file_input){
 		fscanf(file_input, "%s\n", v);
 	    printf("%s\n",v);
