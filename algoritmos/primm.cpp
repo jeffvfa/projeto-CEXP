@@ -280,29 +280,30 @@ void PrimMST(struct Graph* graph)
 	}
 
 	// print edges of MST
-	printArr(parent, V);
+	// printArr(parent, V);
 }
 // Driver program to test above functions
 int main(){
 	// Let us create the graph given in above fugure
 	FILE *file_input;
-	file_input = fopen("input.txt","r");
+	file_input = fopen("../dataset/grafo-completo-10000.txt","r");
 	struct Graph* graph;
-	char a[2],b[2],c[2],v[2];
+	char a[999],b[999],c[999],v[999];
 	if(file_input){
 		fscanf(file_input, "%s\n", v);
-	    printf("%s\n",v);
 		graph = createGraph(atoi(v));
 		while ((fscanf(file_input, "%s %s %s\n", a,b,c))!=EOF){
-	        printf("%s %s %s\n",a,b,c);
 			addEdge(graph, atoi(a), atoi(b), atoi(c));
 		}	
 	}
 	fclose(file_input);
 	
-	clock_t tStart = clock();
-	PrimMST(graph);
-	printf("Time taken: %fs\n", (double)(clock() - tStart)/CLOCKS_PER_SEC);
+	int i;
+	for ( i=0; i < 20; ++i){
+		clock_t tStart = clock();
+		PrimMST(graph);
+		printf("%d Time taken: %fs\n", (double)(clock() - tStart)/CLOCKS_PER_SEC, i+1);
+	}
 
 	return 0;
 }
