@@ -114,7 +114,7 @@ int Graph::kruskalMST()
 		{
 			// Current edge will be in the MST
 			// so print it
-			cout << u << " - " << v << endl;
+			// cout << u << " - " << v << endl;
 
 			// Update MST weight
 			mst_wt += it->first;
@@ -149,7 +149,7 @@ int countlines(char *filename){
 // Driver program to test above functions
 int main(){
 	FILE *file_input;
-	file_input = fopen("input.txt","r");
+	file_input = fopen("../dataset/grafo-completo-10000.txt","r");
 	char a[999],b[999],c[999],v[999];
 	int ch=0;
 	int lines=0;
@@ -166,14 +166,14 @@ int main(){
 	}
 	fclose(file_input);
 
-	printf("%d %d\n",atoi(v),lines);
+	//printf("%d %d\n",atoi(v),lines);
 	Graph g(atoi(v), lines);
-	file_input = fopen("input.txt","r");
+	file_input = fopen("../dataset/grafo-completo-10000.txt","r");
 	if(file_input){
 		fscanf(file_input, "%s\n", v);
-	    printf("%s\n",v);
+	    //printf("%s\n",v);
 		while ((fscanf(file_input, "%s %s %s\n", a,b,c))!=EOF){
-	        printf("%s %s %s\n",a,b,c);
+	        //printf("%s %s %s\n",a,b,c);
 	        g.addEdge(atoi(a),atoi(b),atoi(c));
 		}	
 	}
@@ -186,10 +186,11 @@ int main(){
 
 	// making above shown graph
 
-	clock_t tStart = clock();
-	cout << "Edges of MST are \n";
-	int mst_wt = g.kruskalMST();
-	cout << "\nWeight of MST is " << mst_wt << "\n";
-	printf("Time taken: %fs\n", (double)(clock() - tStart)/CLOCKS_PER_SEC);
+	int i;
+	for ( i=0; i < 20; ++i){	
+		clock_t tStart = clock();
+		int mst_wt = g.kruskalMST();
+		printf("Time taken: %fs\n", (double)(clock() - tStart)/CLOCKS_PER_SEC);
+	}
 	return 0;
 }
