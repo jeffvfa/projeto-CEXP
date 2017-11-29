@@ -179,15 +179,10 @@ int main(){
 	}
 	fclose(file_input);
 
-
-	/* Let us create above shown weighted
-	and unidrected graph */
-	int V = 9, E = 14;
-
 	// making above shown graph
 
 	int i;
-	for ( i=0; i < 20; ++i){	
+	for ( i=0; i < 47; ++i){	
 		clock_t tStart = clock();
 		int mst_wt = g.kruskalMST();
 		printf("Time taken: %fs\n", (double)(clock() - tStart)/CLOCKS_PER_SEC);

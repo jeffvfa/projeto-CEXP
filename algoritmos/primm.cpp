@@ -286,7 +286,7 @@ void PrimMST(struct Graph* graph)
 int main(){
 	// Let us create the graph given in above fugure
 	FILE *file_input;
-	file_input = fopen("../dataset/grafo-completo-10000.txt","r");
+	file_input = fopen("../dataset/grafo-esparso-10000.txt","r");
 	struct Graph* graph;
 	char a[999],b[999],c[999],v[999];
 	if(file_input){
@@ -299,10 +299,10 @@ int main(){
 	fclose(file_input);
 	
 	int i;
-	for ( i=0; i < 20; ++i){
+	for ( i=0; i < 173; ++i){
 		clock_t tStart = clock();
 		PrimMST(graph);
-		printf("%d Time taken: %fs\n", (double)(clock() - tStart)/CLOCKS_PER_SEC, i+1);
+		printf("Time taken: %fs\n", (double)(clock() - tStart)/CLOCKS_PER_SEC, i+1);
 	}
 
 	return 0;
